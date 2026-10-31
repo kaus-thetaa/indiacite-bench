@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "indiacite record",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "excerpt",
+    "citations"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "enum": [
+        "real_incident",
+        "llm_generated",
+        "injected",
+        "synthetic"
+      ]
+    },
+    "excerpt": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    },
+    "incident_ref": {
+      "type": "string"
+    },
+    "anonymized": {
+      "type": "boolean"
+    },
+    "note": {
+      "type": "string"
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "raw",
+          "error_type"
+        ],
+        "properties": {
+          "raw": {
+            "type": "string"
+          },
+          "error_type": {
+            "enum": [
+              "valid",
+              "nonexistent",
+              "citation_mismatch",
+              "wrong_pinpoint",
+              "false_quote",
+              "unsupported_ruling",
+              "stale_statute"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "annotator",
+                "error_type"
+              ],
+              "properties": {
+                "annotator": {
+                  "type": "string"
+                },
+                "error_type": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
