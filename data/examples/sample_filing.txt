@@ -1,0 +1,5 @@
+Synthetic text for pipeline tests only. All parties and citations are fictional.
+
+The petitioner relies on Alpha Traders v. State of Beta (2010) 5 SCC 100 for the rule that notice must precede seizure.
+It also cites Gamma Mills v. Delta Board (1900) 99 SCC 999 on delay, and Epsilon v. Zeta (2011) 6 SCC 200 on jurisdiction.
+A further authority is Omega v. Sigma (2012) 7 SCC 300, which no database in this demo holds.
