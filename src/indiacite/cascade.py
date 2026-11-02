@@ -60,9 +60,11 @@ class ResolverStage:
         self.flag_not_found = flag_not_found
 
     def run(self, citation: Citation, context: str) -> StageResult:
-        res = self.resolver.resolve(citation)
+        cited = extract_case_name(context, citation)
+        res = self.resolver.resolve(citation, cited)
         if res.found is True:
-            cited = extract_case_name(context, citation)
+            if res.citation_verified is True:
+                return StageResult(Verdict.PASS, "found and citation confirmed")
             if cited and res.canonical:
                 if names_match(cited, res.canonical):
                     return StageResult(Verdict.PASS, "found and name matches")
