@@ -25,7 +25,7 @@ Copy the list from `docs/research-questions.md` and explain in one sentence why 
 Three sources of data and why you need all three: real incidents are realistic but few; reference questions scale; injections give control. Explain the split by case and why leakage would inflate results.
 
 ## 6 Methods
-One paragraph per detector: what it looks at, what it costs, what it cannot do. Terms to learn: AUROC, probe, hidden state, entailment.
+One paragraph per detector: what it looks at, what it costs, what it cannot do. Terms to learn: AUROC, probe, hidden state, entailment, token log-probability, entropy. Note that probes from different models cannot be compared directly because hidden sizes differ.
 
 ## 7 Experimental protocol
 Metrics, intervals, seeds, baselines. State the decision rules in advance.
