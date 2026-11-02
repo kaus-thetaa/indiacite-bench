@@ -9,6 +9,7 @@ lint:
 
 validate:
 	indiacite validate data/examples/synthetic_sample.jsonl
+	indiacite validate data/real_incidents/sc_2026_insc_668.jsonl
 
 eval:
 	indiacite eval data/examples/synthetic_sample.jsonl
