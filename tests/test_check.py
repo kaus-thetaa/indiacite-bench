@@ -49,3 +49,10 @@ def test_extract_case_name_drops_leading_connector():
     text = "cited A v. B (2001) 1 SCC 1 and Epsilon v. Zeta (2011) 6 SCC 200"
     c = extract_citations(text)[1]
     assert extract_case_name(text, c) == "Epsilon v. Zeta"
+
+
+def test_extract_case_name_handles_capital_vs_forms():
+    for sep in ("Vs.", "vs.", "V.", "versus", "v."):
+        text = f"Canara Bank {sep} N.G. Subbaraya Setty & Anr., (2018) 16 SCC 228"
+        name = extract_case_name(text, extract_citations(text)[0])
+        assert name is not None and name.startswith("Canara Bank v. N.G. Subbaraya")
