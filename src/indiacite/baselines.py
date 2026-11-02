@@ -9,17 +9,18 @@ class Resolution:
     found: bool | None
     canonical: str | None = None
     source: str = ""
+    citation_verified: bool | None = None
 
 
 class Resolver(Protocol):
-    def resolve(self, citation: Citation) -> Resolution: ...
+    def resolve(self, citation: Citation, case_name: str | None = None) -> Resolution: ...
 
 
 class DictResolver:
     def __init__(self, table: dict[str, str]):
         self.table = table
 
-    def resolve(self, citation: Citation) -> Resolution:
+    def resolve(self, citation: Citation, case_name: str | None = None) -> Resolution:
         if citation.raw in self.table:
             return Resolution(True, self.table[citation.raw], "dict")
         return Resolution(False, None, "dict")
