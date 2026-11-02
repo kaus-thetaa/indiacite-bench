@@ -21,3 +21,4 @@ jobs:
       - run: ruff format --check .
       - run: pytest -q
       - run: indiacite validate data/examples/synthetic_sample.jsonl
+      - run: indiacite validate data/real_incidents/sc_2026_insc_668.jsonl
